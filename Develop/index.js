@@ -1,11 +1,11 @@
 const inquirer = require("inquirer");
 //const Employee = require("./Employee");
-const Manager = require("./Manager");
-const Engineer = require("./Engineer");
-const Intern = require("./Intern");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 const fs = require('fs');
 const allPeople = [];
-var tableBody = document.getElementById('results');
+// var tableBody = document.getElementById('results');
 
 function askQuestion(){
     inquirer.prompt([
@@ -65,7 +65,6 @@ function addEngineer(){
         allPeople.push(engin)
         //console.log(engineerName, engineerId, engineerEmail, engineerGithub);
         console.log(allPeople);
-        console.log(allPeople[0]);
         askQuestion();
     })
 }
@@ -149,7 +148,14 @@ function printWorkGroup(){
   
       <table class=" justify-center align-items-center" id="results">
           <th>
-              <p class="my-4"></p>
+              <p class="my-4">${allPeople[0].name}
+              ${allPeople[0].id}
+              ${allPeople[0].email}
+              </p>
+              <p class="my-4">${allPeople[1].name}
+              ${allPeople[1].id}
+              ${allPeople[1].email}
+              </p>
           </th>
           <tbody id="dataTable" class="justify-center mx-auto text-center"></tbody>
       </table>
@@ -160,30 +166,32 @@ function printWorkGroup(){
  fs.writeFile("workGroup.html", htmlOutPut, (err)=>{
     if (err){
         throw err;
+    } else{
+        
     }
     console.log("ReadMe all finished!!");
  })
   
- 
-    for(var i = 0; i < allPeople.length; i++){
-        var createTableRow = document.createElement('tr');
-        var tableData = document.createElement('td');
-        var workName = document.createElement('p');
-        var workId = document.createElement('p');
-        var workEmail = document.createElement('p');
+//  for(var i = 0; i < allPeople.length; i++){
+//     var createTableRow = document.createElement('tr');
+//     var tableData = document.createElement('td');
+//     var workName = document.createElement('p');
+//     var workId = document.createElement('p');
+//     var workEmail = document.createElement('p');
 
-        //setting text
-        workName.textContent = "Name: " + allPeople[i].name;
-        workId.textContent = "ID: " + allPeople[i].id;
-        workEmail.textContent = "Email" + allPeople[i].email;
+//     //setting text
+//     workName.textContent = "Name: " + allPeople[i].name;
+//     workId.textContent = "ID: " + allPeople[i].id;
+//     workEmail.textContent = "Email" + allPeople[i].email;
 
-        //appending table
-        tableData.appendChild(workName);
-        tableData.appendChild(workId);
-        tableData.appendChild(workEmail);
-        createTableRow.appendChild(tableData);
-        tableBody.appendChild(createTableRow);
-    }
+//     //appending table
+//     tableData.appendChild(workName);
+//     tableData.appendChild(workId);
+//     tableData.appendChild(workEmail);
+//     createTableRow.appendChild(tableData);
+//     tableBody.appendChild(createTableRow);
+// }
+    
  
 }
 askQuestion();
