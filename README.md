@@ -4,4 +4,4 @@
 
 ![cover photo for html generator](https://github.com/ZacharyKathe/html-group-card-generater/blob/main/images/cover.JPG)
 
-#### This is not completly finished!
+#### Clone the repo into a folder. Open a terminal window from index.js in the folder. Run npm i, to initialize the node package. Then run node index.js to follow the prompts!!
